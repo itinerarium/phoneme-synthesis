@@ -2,11 +2,12 @@
 
 <html lang="en">
 <head>
+  <link rel="canonical" href="https://itinerarium.github.io/phoneme-synthesis/" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
 
   <title>Convert IPA phonetic notation text to speech</title>
-  <meta name="description" content="A browser-based tool to convert International Phonetic Alpha (IPA) phonetic notation to speech using the meSpeak.js package.">
+  <meta name="description" content="A browser-based tool to convert International Phonetic Alphabet (IPA) phonetic notation to speech using the meSpeak.js package.">
 
   <style type="text/css">
   html {
@@ -125,7 +126,10 @@
         { 'src': /(\u02c8)/g, 'dest': '\'' },
         { 'src': /(\u02cc)/g, 'dest': ',' },
         { 'src': /(\u0251)/g, 'dest': 'A:' },
-        { 'src': /(\xe6)/g, 'dest': 'a' },
+
+        // feedback from formantzero via r/linguistics
+        { 'src': /(\xe6)/g, 'dest': '@' },
+
         { 'src': /(a)/g, 'dest': 'a' },
         { 'src': /(\u028c)/g, 'dest': 'V' },
         { 'src': /(\u0252)/g, 'dest': '0' },
@@ -197,6 +201,10 @@
         { 'src': /(ɜ)/g, 'dest': '3' },  
         { 'src': /(ɔ)/g, 'dest': 'O' },  
 
+        // feedback from formantzero via r/linguistics
+        { 'src': /(ɹ̩)/g, 'dest': 'r' },  
+        { 'src': /\u0361(.)/g, 'dest': '$1\'' },  
+
         { 'src': /^\s*\//g, 'dest': '' },
         { 'src': /\/\s*$/g, 'dest': '' }
       ];
@@ -235,8 +243,8 @@
       <p>As this processing takes place within your browser, this page may be downloaded and used offline. By extension, the requested pronunciations are not logged.</p>
 
       <h2>improve this tool</h2>
-      <p><strong>Contribute via <a href="https://github.com/itinerarium/phoneme-synthesis/" rel="nofollow">GitHub</a>.</strong></p>
-      <p><strong>Report a bug.</strong> Be sure to include the problematic input, your browser version (Help > About), operating system version, and device type. File <a href="https://github.com/itinerarium/phoneme-synthesis/issues" rel="nofollow">an issue on GitHub</a> or send an e-mail.</p>
+      <p><strong>Contribute via GitHub.</strong></p>
+      <p><strong>Report a bug.</strong> Be sure to include the problematic input, your browser version (Help > About), operating system version, and device type. File an issue on GitHub or send an e-mail.</p>
       <p><strong>Enrich the <abbr title="International Phonetic Alphabet">IPA</abbr>-phoneme correspondence list.</strong> For English, eSpeak recognizes 96 phonemes (<span style="font-family: monospace;">dictsource/dict_phonemes</span>). Currently, only 55 are mapped using lexconvert and there may have been mistakes in interpreting lexconvert's conversion scheme. Additional correspondences should improve pronunciation.</p>
       <p><strong>Contribute to the underlying libraries.</strong> eSpeak, meSpeak.js, or the most current Emscripten'd variation to improve performance/size. meSpeak.js is currently over two megabytes.</p>
 
