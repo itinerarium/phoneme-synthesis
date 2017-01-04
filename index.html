@@ -122,6 +122,9 @@
 
       //translate
       var mappings = [
+        { 'src': /^\s*\//g, 'dest': '' },
+        { 'src': /\/\s*$/g, 'dest': '' },
+
         { 'src': /(\.)/g, 'dest': '%' },
         { 'src': /(\u02c8)/g, 'dest': '\'' },
         { 'src': /(\u02cc)/g, 'dest': ',' },
@@ -136,8 +139,8 @@
         { 'src': /(\u0252)/g, 'dest': '0' },
         { 'src': /(a\u028a)/g, 'dest': 'aU' },
         { 'src': /(\u0259)/g, 'dest': '@' },
-        { 'src': /(\u0259\u02d0)/g, 'dest': '3:' },
         { 'src': /(\u025a)/g, 'dest': '3' },
+        { 'src': /(\u0259\u02d0)/g, 'dest': '3:' },
         { 'src': /(a\u026a)/g, 'dest': 'aI' },
         { 'src': /(\u028c\u026a)/g, 'dest': 'aI' },
         { 'src': /(b)/g, 'dest': 'b' },
@@ -204,9 +207,7 @@
 
         // feedback from formantzero via r/linguistics
         { 'src': /\u0361(.)/g, 'dest': '$1\'' },  
-
-        { 'src': /^\s*\//g, 'dest': '' },
-        { 'src': /\/\s*$/g, 'dest': '' }
+        { 'src': /3$/g, 'dest': 'R' }
       ];
 
       for (var i = 0; i < mappings.length; i++) {
