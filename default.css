@@ -1,0 +1,60 @@
+html {
+  font-family: Helvetica, sans-serif;
+  background-color: #404040;
+  min-width: 320px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+div#container {
+  width: 60%;
+  line-height: 1.5;
+  margin: 0 auto;
+  padding: 1em;
+  background-color: #f3f3f3;
+}
+
+@media screen and (max-width: 640px) {
+  div#container {
+    width: 288px;
+  }
+}
+
+noscript p {
+  background-color: #ffffff;
+  padding: 1em;
+}
+
+div#tool, div#about, div#note {
+  background-color: #ffffff;
+  padding: 1em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+input#ipa-input {
+  width: 240px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+input#submit, input#download-button {
+  width: 248px;
+  text-align: center;
+  display: block;
+  margin: 1em auto;
+}
+input#download-button {
+  margin-bottom: 0;
+}
+hr {
+  border: 0;
+  height: 1em;
+}
+h2 {
+  margin-bottom: 0.35em;
+}
