@@ -111,12 +111,12 @@
     }
 
     function process() {
-      uipa = document.getElementById("ipa-input").value;
+      var uipa = document.getElementById("ipa-input").value;
 
       document.getElementById("download-button").disabled = true;
 
       // nothing to process      
-      if (uipa == null || uipa.length == 0) {
+      if (uipa == null || uipa.length === 0) {
         return;
       }
 
