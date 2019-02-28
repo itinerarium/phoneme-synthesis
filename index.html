@@ -54,13 +54,13 @@
     display: block;
     margin: 0 auto;
   }
-  input#submit, input#download-button {
+  input#submit, input#download-button, input#copy-link-button {
     width: 248px;
     text-align: center;
     display: block;
     margin: 1em auto;
   }
-  input#download-button {
+  input#copy-link-button {
     margin-bottom: 0;
   }
   hr {
@@ -108,6 +108,21 @@
 
     function clear_download_button() {
       document.getElementById("download-button").disabled = true;
+    }
+
+    function copyToCliboard(text) {
+      t = document.createElement('input');
+      t.value = text;
+      document.body.appendChild(t);
+      t.select();
+      document.execCommand('copy');
+      document.body.removeChild(t);
+    }
+
+    function copy_link_button() {
+      uipa = document.getElementById("ipa-input").value;
+      url = window.location.href.split('?')[0] + "?w=" + uipa;
+      copyToCliboard(url);
     }
 
     function process() {
@@ -265,6 +280,7 @@
       <input id="ipa-input" onchange="clear_download_button(); return false;" type="text" value="/mʊmˈbaɪ/" />
       <input id="submit" onclick="process(); return false;" type="button" value="pronounce" />
       <input id="download-button" onclick="download(); return false;" type="button" disabled="disabled" value="download pronunciation" />
+      <input id="copy-link-button" onclick="copy_link_button(); return false;" type="button" value="copy share url" />
     </form>
     </div>
   
@@ -298,5 +314,13 @@
       <p style="margin-bottom: 0;">Last updated: 2017-01-04</p>
     </div>
   </div>
+  <script type="text/javascript">
+    (function() {
+      var urlParams = new URLSearchParams(window.location.search);
+      if(urlParams.has('w')) {
+        document.getElementById("ipa-input").value = urlParams.get('w');
+      }
+    })();
+  </script>
 </body>
 </html>
