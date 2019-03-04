@@ -315,10 +315,17 @@
     </div>
   </div>
   <script type="text/javascript">
+    function is_valid_input(i) {
+      return !(i.includes("<") || i.includes(">") || i.length > 200)
+    }
+
     (function() {
       var urlParams = new URLSearchParams(window.location.search);
       if(urlParams.has('w')) {
-        document.getElementById("ipa-input").value = urlParams.get('w');
+	var word = urlParams.get('w');
+	if(is_valid_input(word)) {
+          document.getElementById("ipa-input").value = word;
+	}
       }
     })();
   </script>
