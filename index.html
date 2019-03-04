@@ -110,7 +110,7 @@
       document.getElementById("download-button").disabled = true;
     }
 
-    function copyToCliboard(text) {
+    function copyToClipboard(text) {
       t = document.createElement('input');
       t.value = text;
       document.body.appendChild(t);
@@ -122,7 +122,7 @@
     function copy_link_button() {
       uipa = document.getElementById("ipa-input").value;
       url = window.location.href.split('?')[0] + "?w=" + uipa;
-      copyToCliboard(url);
+      copyToClipboard(url);
     }
 
     function process() {
