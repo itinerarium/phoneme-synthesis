@@ -124,7 +124,10 @@
 
     function copy_link_button() {
       uipa = document.getElementById("ipa-input").value;
-      url = window.location.href.split('?')[0] + "?w=" + uipa;
+      playbackSpeed = document.getElementById("playback-speed-input").value;
+
+      url = window.location.href.split('?')[0] + "?w=" + uipa + "&s=" + playbackSpeed;
+      
       copyToClipboard(url);
     }
 
@@ -327,10 +330,16 @@
     (function() {
       var urlParams = new URLSearchParams(window.location.search);
       if(urlParams.has('w')) {
-	var word = urlParams.get('w');
-	if(is_valid_input(word)) {
+	      var word = urlParams.get('w');
+	      if(is_valid_input(word)) {
           document.getElementById("ipa-input").value = word;
-	}
+	      }
+      }
+      if(urlParams.has('s')) {
+        var word = urlParams.get('s');
+	      if(is_valid_input(word)) {
+          document.getElementById("playback-speed-input").value = word;
+	      }
       }
     })();
   </script>
