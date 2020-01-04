@@ -54,11 +54,14 @@
     display: block;
     margin: 0 auto;
   }
-  input#submit, input#download-button, input#copy-link-button {
+  input#submit, input#download-button, input#copy-link-button, input#playback-speed-input {
     width: 248px;
     text-align: center;
     display: block;
     margin: 1em auto;
+  }
+  input#playback-speed-input {
+    width: 240px  ;
   }
   input#copy-link-button {
     margin-bottom: 0;
@@ -127,7 +130,8 @@
 
     function process() {
       uipa = document.getElementById("ipa-input").value;
-
+      playbackSpeed = document.getElementById("playback-speed-input").value;
+      
       document.getElementById("download-button").disabled = true;
 
       // nothing to process      
@@ -261,8 +265,8 @@
         uipa = uipa.replace(mappings[i].src, mappings[i].dest);
         //console.log(mappings[i].src + uipa);
       }
-      console.log(uipa);
-      spoken = meSpeak.speak('[['+uipa+']]', { 'rawdata': 'mime' });
+      console.log(uipa);  
+      spoken = meSpeak.speak('[['+uipa+']]', { 'rawdata': 'mime' , 'speed': playbackSpeed});
       if (spoken == null) {
         alert("An error occurred: speaking failed.");
       }
@@ -278,6 +282,7 @@
     <p style="text-align: center;"><em>Convert <abbr title="International Phonetic Alphabet">IPA</abbr> phonetic notation to speech</em></p>
     <form onsubmit="process(); return false;">
       <input id="ipa-input" onchange="clear_download_button(); return false;" type="text" value="/mʊmˈbaɪ/" />
+      <input id="playback-speed-input" type="number" min="1" value="175">
       <input id="submit" onclick="process(); return false;" type="button" value="pronounce" />
       <input id="download-button" onclick="download(); return false;" type="button" disabled="disabled" value="download pronunciation" />
       <input id="copy-link-button" onclick="copy_link_button(); return false;" type="button" value="copy share url" />
