@@ -121,7 +121,7 @@
 
     function copy_link_button() {
       uipa = document.getElementById("ipa-input").value;
-      url = window.location.href.split('?')[0] + "?w=" + uipa;
+      url = window.location.href.split('?')[0] + "?w=" + encodeURIComponent(uipa);
       copyToClipboard(url);
     }
 
